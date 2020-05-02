@@ -1,0 +1,11 @@
+[sshd-valid]
+enabled  = true
+filter   = sshd-valid
+action   = iptables[name=SSH, port=ssh, protocol=tcp]
+           sshd-action[name=SSH]
+logpath  = /var/log/messages
+maxretry = 5
+findtime = 60
+bantime = 300
+backend = pyinotify
+journalmatch =
